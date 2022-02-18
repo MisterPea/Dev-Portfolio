@@ -1,8 +1,6 @@
-## Developer Showcase
----
-
-#### To Do:
-Layout
+# Developer Folio
+## To Do:
+### Layout:
 * [ ] Mobile - Dark Mode
 * [ ] Mobile - Light Mode 
 * [ ] Tablet - Dark Mode
@@ -10,7 +8,7 @@ Layout
 * [ ] Desktop - Dark Mode
 * [ ] Desktop - Light Mode
 
-Development
+### Development:
 * [ ] Graphics
   * [ ] SVG Lines
   * [ ] GitHub Icon
@@ -30,7 +28,7 @@ Development
   * [ ] Deploy Projects
 * [ ] Contact/Say Hello 
 
-Social
+### Social:
 * [ ] Twitter
 * [ ] Instagram
 * [ ] LinkedIn
