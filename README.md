@@ -1,11 +1,11 @@
 # Developer Folio
 ## To Do:
 ### Layout:
-* [ ] Mobile - Dark Mode
+* [x] Mobile - Dark Mode
 * [ ] Mobile - Light Mode 
-* [ ] Tablet - Dark Mode
+* [x] Tablet - Dark Mode
 * [ ] Tablet - Light Mode
-* [ ] Desktop - Dark Mode
+* [x] Desktop - Dark Mode
 * [ ] Desktop - Light Mode
 
 ### Development:
