@@ -2,11 +2,11 @@
 ## To Do:
 ### Layout:
 * [x] Mobile - Dark Mode
-* [ ] Mobile - Light Mode 
+* [x] Mobile - Light Mode 
 * [x] Tablet - Dark Mode
-* [ ] Tablet - Light Mode
+* [x] Tablet - Light Mode
 * [x] Desktop - Dark Mode
-* [ ] Desktop - Light Mode
+* [x] Desktop - Light Mode
 
 ### Development:
 * [ ] Graphics
@@ -20,12 +20,15 @@
   * [ ] Moon Icon
   * [ ] Up/Right Link Arrow Icon
   * [ ] Read More Long Arrow Icon
+* [ ] Header Component
+* [ ] Section Component
 * [ ] About
   * [ ] Bio 
   * [ ] Image
   * [ ] Small Contact Links
 * [ ] Wares
   * [ ] Deploy Projects
+  * [ ] Email Sample Link
 * [ ] Contact/Say Hello 
 
 ### Social:
