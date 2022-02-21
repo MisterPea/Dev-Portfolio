@@ -1,7 +1,106 @@
-body {
-  background-color:aquamarine;
+@import "./mixins.scss";
+
+:root {
+  --background: rgb(240, 236, 230);
+  --accent: rgb(166, 148, 129);
+  --text: #000;
+  --lines: rgb(207, 198, 186);
+  --launch-one: rgb(105, 177, 124);
+  --launch-two: rgb(164, 210, 175);
+  --section-outline: rgb(92, 92, 92);
 }
 
-.text-one {
-  color: red;
+[data-theme="dark"] {
+  --background: #000;
+  --accent: rgb(83, 169, 207);
+  --accent-darker: rgb(72, 107, 129);
+  --text: #fff;
+  --lines: rgb(101, 101, 101);
+  --launch-one: rgb(83, 169, 207);
+  --launch-two: rgb(72, 107, 124);
+  --section-outline: rgb(105, 105, 105);
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+html {
+  background-color: var(--background);
+  transition: background-color 250ms ease-in-out;
+}
+
+.nav-bar {
+  padding: 20px 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: fixed;
+  width:100%;
+  
+}
+
+.site-title {
+  @include text-two;
+  color: var(--text);
+  font-size: 1.5em;
+  background-color: var(--background);
+  margin-right: 25%;
+  padding-right: 10px;
+  border-radius: 0 8px 8px 0;
+  span {
+    @include text-three;
+    color: var(--accent);
+    transition: color 250ms ease-in-out;
+  }
+}
+
+nav {
+  flex: 1;
+  
+}
+
+.nav-ul {
+  background-color: var(--background);
+  display: flex;
+  float: right;
+  padding-left: 10px;
+  border-radius: 8px 0 0 8px;
+  li {
+    @include text-three;
+    color: var(--accent);
+    font-size: 1.5em;
+    padding: 0 5px;
+  }
+}
+
+.theme-icon {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 5px;
 }
