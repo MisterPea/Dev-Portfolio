@@ -1,0 +1,61 @@
+.nav-bar {
+  padding: 20px 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+}
+
+.site-title {
+  @include text-two;
+  color: var(--text);
+  font-size: 1.5em;
+  background-color: var(--background);
+  margin-right: 25%;
+  padding-right: 5px;
+  border-radius: 0 8px 8px 0;
+  height: 1.5em;
+  line-height: 1.25em;
+  transition: background-color 300ms ease-in-out;
+  span {
+    @include text-three;
+    color: var(--accent);
+    transition: color 250ms ease-in-out;
+  }
+}
+
+nav {
+  flex: 1;
+}
+
+.nav-ul {
+  background-color: var(--background);
+  display: flex;
+  float: right;
+  padding-left: 5px;
+  border-radius: 8px 0 0 8px;
+  transition: background-color 300ms ease-in-out;
+  li {
+    cursor: pointer;
+  }
+  li:focus {
+    outline: none; // <------ Change on none mobile sizes.
+  }
+  p {
+    @include text-three;
+    color: var(--accent);
+    font-size: 1.4em;
+    padding: 0 5px;
+    height: 1.6em;
+    line-height: 1.4em;
+  }
+}
+
+.theme-icon {
+  color: var(--accent);
+  margin-top: 0.35em;
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 5px;
+}
