@@ -1,13 +1,16 @@
 .landing-sec {
+  display: flex;
+  flex-direction: column;
   & .lines {
-    height: 200px;
+    flex:2;
     width: 100%;
+    // background-color: burlywood;
     background-image: var(--lines);
     background-repeat:repeat;
     background-size:15px;
   }
   & .bottom {
-    height: 100vh;
+    flex: 3;
   }
 }
 
