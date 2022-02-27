@@ -1,0 +1,60 @@
+.wares-sec {
+  display: flex;
+  flex-direction: column;
+
+  & .lines {
+    flex: 1;
+    min-height: 120px;
+    width: 100%;
+    // background-color: aqua;
+    background-image: var(--lines);
+    background-repeat: repeat;
+    background-size: 15px;
+  }
+  & .bottom {
+    flex: 3;
+  }
+
+  .section-title {
+    flex: 1;
+  }
+
+  ul {
+    flex: 1;
+    margin: 20px 10px 0;
+  }
+
+  h3 {
+    @include text-three;
+    color: var(--accent);
+  }
+
+  p {
+    @include text-one;
+    color: var(--text);
+  }
+  .extra-text {
+    // display: none;
+  }
+
+
+  li {
+    display: flex;
+    width: 100%;
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .image-side {
+    
+    flex-shrink: 0;
+    height: 150px;
+    width: 150px;
+    background-color: var(--accent);
+  }
+
+  .text-side {
+    flex: 1;
+  }
+}
