@@ -1,6 +1,12 @@
 .connect-sec {
   display: flex;
   flex-direction: column;
+  margin-top: 50vh;
+
+  .content-wrapper {
+    background-color: var(--background);
+    transition: background-color 300ms ease-in-out;
+  }
 
   .section-title {
     margin-bottom: 100px;
@@ -10,13 +16,13 @@
     flex: 1;
     min-height: 120px;
     width: 100%;
-    // background-color: aqua;
-    background-image: var(--lines);
-    background-repeat: repeat;
-    background-size: 15px;
+    background-color: rgba(0, 0, 0, 0.001);
+    // background-image: var(--lines);
+    // background-repeat: repeat;
+    // background-size: 15px;
   }
   & .bottom {
-    flex: 3;
+    flex: 2;
   }
 
   ul {

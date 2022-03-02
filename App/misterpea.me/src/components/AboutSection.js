@@ -25,6 +25,7 @@ export default function AboutSection() {
       setHover(false);
     }
   }
+  
 
   return (
     <div className='section about-sec'>

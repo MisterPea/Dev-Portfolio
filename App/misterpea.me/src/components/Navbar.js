@@ -61,7 +61,7 @@ export default function Navbar() {
           </li>
           <li role="button" tabIndex={0} onClick={toggleTheme}>{
             currentTheme === "light" ?
-              <BsFillMoonFill className='theme-icon' /> :
+              <BsFillMoonFill className='theme-icon moon' /> :
               <BsSun className='theme-icon' />
           }</li>
         </ul>

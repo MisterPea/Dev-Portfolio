@@ -13,7 +13,9 @@ export default function Home() {
         <AboutSection />
         <WaresSection />
         <ConnectSection />
+        <div className='line-pattern' />
       </div>
+      
     </div>
   );
 }

@@ -3,12 +3,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-
+  position: fixed;
+  width: 100vw;
+  z-index: 15;
 }
 
 .site-title {
@@ -44,8 +41,9 @@ nav {
   li {
     cursor: pointer;
   }
+
   li:focus {
-    outline: none; // <------ Change on none mobile sizes.
+    outline: none; // <------ Change on non-mobile sizes.
   }
   p {
     @include text-three;
@@ -59,8 +57,13 @@ nav {
 
 .theme-icon {
   color: var(--accent);
-  margin-top: 0.35em;
-  width: 1.5em;
-  height: 1.5em;
+  margin-top: 25%;
+  width: 1.4em;
+  height: 1.4em;
   margin-left: 5px;
+  &.moon {
+    margin-top: 30%;
+    width: 1.4em;
+    height: 1.2em;
+  }
 }
