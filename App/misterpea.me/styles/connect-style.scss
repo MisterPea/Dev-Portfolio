@@ -1,0 +1,53 @@
+.connect-sec {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50vh;
+
+  .content-wrapper {
+    background-color: var(--background);
+    transition: background-color 300ms ease-in-out;
+  }
+
+  .section-title {
+    margin-bottom: 100px;
+  }
+
+  & .lines {
+    flex: 1;
+    min-height: 120px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.001);
+  }
+  & .bottom {
+    flex: 2;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+    width: 250px;
+    justify-content: space-between;
+    li {
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: var(--text-outline);
+        height: 2.5em;
+        width: 2.5em;
+        top: -0.25em;
+        left: -0.25em;
+        z-index: -10;
+        border-radius: 50%;
+      }
+    }
+    li svg {
+      color: var(--accent);
+      width: 2em;
+      height: 2em;
+    }
+  }
+}

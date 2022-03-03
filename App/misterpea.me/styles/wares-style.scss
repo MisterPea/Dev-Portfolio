@@ -1,0 +1,68 @@
+.wares-sec {
+  display: flex;
+  flex-direction: column;
+  padding-top: 120px;
+  .content-wrapper {
+    background-color: var(--background);
+    transition: background-color 300ms ease-in-out;
+  }
+  & .lines {
+    flex: 1;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.001);
+  }
+  & .bottom {
+    flex: 2;
+  }
+
+  .section-title {
+    flex: 1;
+  }
+
+  ul {
+    flex: 1;
+    margin: 20px 10px 0;
+  }
+
+  h3 {
+    @include text-three;
+    color: var(--accent);
+  }
+
+  p {
+    @include text-one;
+    color: var(--text);
+  }
+  .extra-text {
+    display: none; // <------ change on non-mobile sizes.
+  }
+
+  li {
+    margin-bottom: 40px;
+    display: flex;
+    width: 100%;
+    .text-side {
+      padding-left: 0;
+      padding-right: 10px;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      .text-side {
+        padding-left: 10px;
+        padding-right: 0;
+      }
+   
+    }
+  }
+
+  .image-side {
+    flex-shrink: 0;
+    height: 150px;
+    width: 150px;
+    background-color: var(--accent);
+  }
+
+  .text-side {
+    flex: 1;
+  }
+}

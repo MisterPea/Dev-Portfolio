@@ -4,7 +4,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   position: fixed;
-  width: 100%;
+  width: 100vw;
+  z-index: 15;
 }
 
 .site-title {
@@ -18,6 +19,7 @@
   height: 1.5em;
   line-height: 1.25em;
   transition: background-color 300ms ease-in-out;
+  cursor: pointer;
   span {
     @include text-three;
     color: var(--accent);
@@ -39,8 +41,9 @@ nav {
   li {
     cursor: pointer;
   }
+
   li:focus {
-    outline: none; // <------ Change on none mobile sizes.
+    outline: none; // <------ Change on non-mobile sizes.
   }
   p {
     @include text-three;
@@ -54,8 +57,13 @@ nav {
 
 .theme-icon {
   color: var(--accent);
-  margin-top: 0.35em;
-  width: 1.5em;
-  height: 1.5em;
+  margin-top: 25%;
+  width: 1.4em;
+  height: 1.4em;
   margin-left: 5px;
+  &.moon {
+    margin-top: 30%;
+    width: 1.4em;
+    height: 1.2em;
+  }
 }

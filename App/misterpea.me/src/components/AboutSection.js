@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { useState, useLayoutEffect, useRef } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 
 export default function AboutSection() {
   const [moreText, setMoreText] = useState(false);
   const [hover, setHover] = useState(false);
   const moreTextHeight = useRef(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     moreTextHeight.current = `${document.querySelector('.more-text').scrollHeight}px`
   });
   
@@ -26,10 +27,8 @@ export default function AboutSection() {
     }
   }
 
-
-
   return (
-    <div className='section about-section'>
+    <div className='section about-sec'>
       <div className='lines top' />
       <div className='main-content'>
         <h1 className='section-title'>about:</h1>
