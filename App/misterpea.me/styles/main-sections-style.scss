@@ -1,44 +1,33 @@
 .sections-wrapper {
-  scroll-snap-type: y proximity;
-  overflow-y: scroll;
-  overflow-x: hidden;
-
+  scroll-snap-type:y proximity;
   scroll-behavior: smooth;
   z-index: 3;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
   position: relative;
-  height: 100%;
-
-  // perspective: 8px;
-  // perspective-origin: 0 0;
-  
 }
 
 .line-pattern {
+  height: 101vh;
   width: 100vw;
-  height: 100%;
-  // background-attachment: scroll;
   position: absolute;
   top: 0;
-  left: 0;
+  background-attachment: scroll;
   z-index: -100;
   background: var(--lines);
   background-size: 13px;
   background-repeat: repeat;
-  // transform: translateZ(0px);
-  // background-color: aqua;
 }
 
 .section {
-  min-height: 101vh;
-  // transform-origin: 0 0;
-  // transform: translateZ(3px) scale(0.625);
+  min-height: 110vh;
+  scroll-snap-align: center;
 }
 
 .about-sec {
   display: flex;
   flex-direction: column;
-  // transform-origin: 0;
-  // transform: translateZ(3px) scale(0.625);
 
   & .main-content {
     background-color: var(--background);
@@ -72,20 +61,15 @@
 
 .section-text-wrapper {
   @include text-one;
-  // display: flex;
   margin: 0 20px 20px;
   color: var(--text);
 
   p {
-    // flex: 1;
     margin: 0 5px;
   }
-  .section-text {
-    // flex: 1;
-  }
+ 
   .image {
     float: right;
-    // flex: 1;
     height: 150px;
     width: 150px;
     background-color: black;

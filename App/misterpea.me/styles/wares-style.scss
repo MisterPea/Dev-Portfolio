@@ -8,12 +8,8 @@
   }
   & .lines {
     flex: 1;
-    // min-height: 90px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.001);
-    // background-image: var(--lines);
-    // background-repeat: repeat;
-    // background-size: 15px;
   }
   & .bottom {
     flex: 2;
@@ -38,14 +34,24 @@
     color: var(--text);
   }
   .extra-text {
-    // display: none;
+    display: none; // <------ change on non-mobile sizes.
   }
 
   li {
+    margin-bottom: 40px;
     display: flex;
     width: 100%;
+    .text-side {
+      padding-left: 0;
+      padding-right: 10px;
+    }
     &:nth-child(even) {
       flex-direction: row-reverse;
+      .text-side {
+        padding-left: 10px;
+        padding-right: 0;
+      }
+   
     }
   }
 
