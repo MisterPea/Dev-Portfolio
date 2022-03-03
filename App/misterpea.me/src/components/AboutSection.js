@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useState, useEffect, useRef } from 'react';
 
 export default function AboutSection() {
@@ -25,7 +26,6 @@ export default function AboutSection() {
       setHover(false);
     }
   }
-  
 
   return (
     <div className='section about-sec'>
