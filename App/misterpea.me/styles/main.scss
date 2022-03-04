@@ -16,6 +16,10 @@
   --launch-two: rgb(164, 210, 175);
   --section-outline: rgb(92, 92, 92);
   --logo: rgb(74, 153, 186);
+  --nav-line-width: 0px;
+  --nav-line-left: 0px;
+  --nav-line-opacity: 0;
+  --nav-line-adj-opacity: 0.4;
 }
 
 [data-theme="dark"] {
@@ -29,12 +33,16 @@
   --launch-two: rgb(72, 107, 124);
   --section-outline: rgb(105, 105, 105);
   --logo: rgb(83, 169, 207);
+  --nav-line-width: 0px;
+  --nav-line-left: 0px;
+  --nav-line-opacity: 0;
+  --nav-line-adj-opacity: 1;
 }
 
 html {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  background-color: var(--background);
+  transition: background-color 300ms ease-in-out;
 }
 *,
 *:before,
@@ -44,6 +52,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-y: scroll;
   // @supports(padding: max(0px)) {
   //   padding-left: max(5px, env(safe-area-inset-left));
   //   padding-right: max(5px, env(safe-area-inset-right));
@@ -68,10 +78,3 @@ button {
   border: none;
 }
 
-html {
-  background-color: var(--background);
-  transition: background-color 300ms ease-in-out;
-}
-.main {
-  min-height: 100vh;
-}

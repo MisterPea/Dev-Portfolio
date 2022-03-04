@@ -25,29 +25,61 @@
   ul {
     display: flex;
     flex-direction: row;
+    padding-top: 10px;
     margin: 20px auto;
     width: 250px;
     justify-content: space-between;
     li {
       position: relative;
       z-index: 1;
-
+    }
+    .linkedIn-icon,
+    .instagram-icon,
+    .twitter-icon,
+    .email-icon,
+    .github-icon {
+      cursor: pointer;
+      svg {
+        color: var(--accent);
+        width: 2.5em;
+        height: 2.5em;
+        padding-bottom: 1px;
+      }
+      .linkedIn-svg,
+      .instagram-svg,
+      .twitter-svg,
+      .email-svg {
+        padding: 0.5em;
+      }
       &::before {
         content: "";
         position: absolute;
-        background-color: var(--text-outline);
+        border: 1px solid var(--accent);
+        opacity: 0.75;
         height: 2.5em;
         width: 2.5em;
-        top: -0.25em;
-        left: -0.25em;
         z-index: -10;
         border-radius: 50%;
       }
-    }
-    li svg {
-      color: var(--accent);
-      width: 2em;
-      height: 2em;
+      // <------ This is for desktop only
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: var(--launch-one);
+        opacity: 0;
+        transform: scale(0);
+        height: 2.5em;
+        width: 2.5em;
+        z-index: 0;
+        left:0;
+        border-radius: 50%;
+        transition: all 250ms;
+
+      }
+      &:hover::after {
+        opacity: 0.4;
+        transform: scale(1);
+      }
     }
   }
 }
