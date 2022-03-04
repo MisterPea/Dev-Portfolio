@@ -37,7 +37,36 @@ nav {
   float: right;
   padding-left: 5px;
   border-radius: 8px 0 0 8px;
+  position: relative;
   transition: background-color 300ms ease-in-out;
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 90%;
+    opacity: calc(var(--nav-line-opacity) * var(--nav-line-adj-opacity));
+    background-color:rgb(255, 255, 255);
+
+    width: var(--nav-line-width);
+    left: var(--nav-line-left);
+    bottom: 5%;
+    border-radius: 7px;
+    transition: all 350ms;
+    mix-blend-mode: soft-light;
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    display: block;
+    height: 90%;
+    opacity: calc(var(--nav-line-opacity) * 0.7);
+    border: 1px solid var(--accent);
+    width: var(--nav-line-width);
+    left: var(--nav-line-left);
+    bottom: 5%;
+    border-radius: 7px;
+    transition: all 350ms;
+  }
   li {
     cursor: pointer;
   }
