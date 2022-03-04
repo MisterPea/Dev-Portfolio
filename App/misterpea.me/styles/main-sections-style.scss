@@ -3,7 +3,7 @@
   scroll-behavior: smooth;
   z-index: 3;
   top: 0;
-  height: 100vh;
+  height: 101vh;
   overflow: auto;
   position: relative;
 }
@@ -22,7 +22,7 @@
 
 .section {
   min-height: 110vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .about-sec {
