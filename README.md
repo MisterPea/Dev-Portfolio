@@ -10,18 +10,19 @@
 
 ### Development:
 * [ ] Graphics
-  * [ ] SVG Lines
-  * [ ] GitHub Icon
-  * [ ] Twitter Icon
-  * [ ] Email Icon
-  * [ ] Instagram Icon
-  * [ ] LinkedIn Icon
-  * [ ] Sun Icon
-  * [ ] Moon Icon
+  * [x] SVG Lines
+  * [x] GitHub Icon
+  * [x] Twitter Icon
+  * [x] Email Icon
+  * [x] Instagram Icon
+  * [x] LinkedIn Icon
+  * [x] Sun Icon
+  * [x] Moon Icon
   * [ ] Up/Right Link Arrow Icon
   * [ ] Read More Long Arrow Icon
-* [ ] Header Component
-* [ ] Section Component
+* [x] Header Component
+  * [x] Current section box - `IntersectionObserver` 
+* [x] Section Component
 * [ ] About
   * [ ] Bio 
   * [ ] Image
@@ -30,6 +31,12 @@
   * [ ] Deploy Projects
   * [ ] Email Sample Link
 * [ ] Contact/Say Hello 
+* [ ] Site sizes
+  * [ ] Mobile
+  * [ ] Tablet
+  * [ ] Desktop
+* [x] Light Mode
+* [x] Dark Mode
 
 ### Social:
 * [ ] Twitter
