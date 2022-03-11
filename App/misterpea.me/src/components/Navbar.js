@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import useTheme from '@hooks/useTheme';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
-export default function Navbar() {
+export default function Navbar({currentTheme, toggleTheme}) {
   const navElement = useRef({
     landing: null,
     about: null,
@@ -55,8 +54,6 @@ export default function Navbar() {
     ));
   };
 
-  const [toggleTheme, currentTheme] = useTheme();
-
   useEffect(() => {
     const sectionClasses = document.querySelectorAll('.section');
     const navArray = Object.keys(navElement.current);
@@ -96,8 +93,6 @@ export default function Navbar() {
       });
     }
   }
-
-
 
   return (
     <div className='nav-bar'>
