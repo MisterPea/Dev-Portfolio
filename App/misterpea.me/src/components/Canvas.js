@@ -6,8 +6,12 @@ import aboutImageBASE64 from './AboutImage';
 // const image = require('../../assets/MB.jpg').default;
 // const image = require('../../assets/autumnal-cannibalism.jpg').default;
 
-export default function Canvas() {
+export default function AboutImageCanvas({ darkMode }) {
   const k = 9; // kernel size;
+
+  const uniqueId = () => {
+    return `on-canvas-${darkMode ? "dark" : "light"}`;
+  };
 
   function drawImage() {
     const img = new Image();
@@ -19,7 +23,18 @@ export default function Canvas() {
     });
   }
 
-  function renderLR(ctx, x, y, val) {
+  function renderDarkLine(ctx, x, y, val) {
+    const density = ((k / 2) * (1 - val) - 5) * -1;
+    ctx.beginPath();
+    ctx.moveTo((x - k / 2), (y - k / 2));
+    ctx.lineTo(x + k / 2, y + k / 2);
+    ctx.lineWidth = density;
+    ctx.strokeStyle = "white";
+    ctx.stroke();
+    ctx.closePath();
+    console.log((k / 2) * (1 - val) - 5);
+  }
+  function renderLightLine(ctx, x, y, val) {
     ctx.beginPath();
     ctx.moveTo((x - k / 2), (y - k / 2));
     ctx.lineTo(x + k / 2, y + k / 2);
@@ -28,16 +43,16 @@ export default function Canvas() {
     ctx.closePath();
   }
 
-  function renderVert(ctx, x, y, val) {
+  function renderDarkDot(ctx, x, y, val) {
+    const density = ((k / 2) * (1 - val) - 5) * -1;
     ctx.beginPath();
-    ctx.moveTo((x - k / 2), (y));
-    ctx.lineTo(x - k / 2, y - k);
-    ctx.lineWidth = (k / 2) * (1 - val);
-    ctx.stroke();
+    ctx.ellipse(x, y, density, density, 0, 0, 2 * Math.PI);
+    ctx.fillStyle = "white";
+    ctx.fill();
     ctx.closePath();
   }
 
-  function renderDot(ctx, x, y, val) {
+  function renderLightDot(ctx, x, y, val) {
     ctx.beginPath();
     ctx.ellipse(x, y, (k / 2) * (1 - val), (k / 2) * (1 - val), 0, 0, 2 * Math.PI);
     ctx.fill();
@@ -45,13 +60,17 @@ export default function Canvas() {
   }
 
   function renderAnimation(ctx, sampledData) {
-    const options = [
-      renderDot,
-      renderLR,
-      renderVert,
+    const lightOptions = [
+      renderLightDot,
+      renderLightLine,
     ];
+    const darkOptions = [
+      renderDarkDot,
+      renderDarkLine,
+    ];
+
     function nextDrawing(currentOption) {
-      const canvas = document.getElementById('on-canvas');
+      const canvas = document.getElementById(uniqueId());
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < sampledData.length; i += 1) {
         const { x, y, totalAvg } = sampledData[i];
@@ -59,7 +78,11 @@ export default function Canvas() {
       }
     }
     const index = Math.ceil(Math.random() * 2) - 1;
-    nextDrawing(options[index]);
+    if (darkMode) {
+      nextDrawing(darkOptions[index]);
+    } else {
+      nextDrawing(lightOptions[index]);
+    }
   }
 
   function parseImageData(imageData, ctx) {
@@ -92,14 +115,14 @@ export default function Canvas() {
   function addImage(img) {
     const mainDiv = document.querySelector('.main-div');
     const onCanvas = document.createElement('CANVAS');
-    onCanvas.id = 'on-canvas';
+    onCanvas.id = uniqueId();
     // this is to prevent non-square pixels at the ends/
     onCanvas.width = img.width - (onCanvas.width % k);
     onCanvas.height = img.height - (onCanvas.height % k);
     const onCtx = onCanvas.getContext('2d');
     onCtx.clearRect(0, 0, img.width, img.height);
     onCtx.beginPath();
-    onCtx.ellipse((img.width / 2) - 10,  (img.height / 2) -10 , (img.width / 2) - 10, (img.width / 2) - 10, 0, 0, 2 * Math.PI);
+    onCtx.ellipse((img.width / 2) - 10, (img.height / 2) - 10, (img.width / 2) - 10, (img.width / 2) - 10, 0, 0, 2 * Math.PI);
     onCtx.clip();
     mainDiv.appendChild(onCanvas);
     // onCtx.drawImage(img, 0, 0, onCanvas.width, onCanvas.height);
