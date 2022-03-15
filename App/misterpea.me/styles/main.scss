@@ -7,6 +7,7 @@
 
 :root {
   --background: rgb(240, 236, 230);
+  --background-opacity: rgba(240, 236, 230, 0.6);
   --accent: rgb(166, 148, 129);
   --accent-darker: rgb(136, 120, 104);
   --text: #000;
@@ -24,6 +25,7 @@
 
 [data-theme="dark"] {
   --background: #000;
+  --background-opacity: rgba(0, 0, 0, 0.6);
   --accent: rgb(83, 169, 207);
   --accent-darker: rgb(72, 107, 129);
   --text: #fff;
@@ -43,6 +45,9 @@ html {
   box-sizing: border-box;
   background-color: var(--background);
   transition: background-color 300ms ease-in-out;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 *,
 *:before,
@@ -54,6 +59,8 @@ body {
   padding: 0;
   height: 100%;
   overflow-y: scroll;
+  font-size: 100%;
+  line-height: 1.5;
   // @supports(padding: max(0px)) {
   //   padding-left: max(5px, env(safe-area-inset-left));
   //   padding-right: max(5px, env(safe-area-inset-right));
@@ -68,7 +75,8 @@ ul,
 li,
 p,
 h1,
-h3 {
+h3,
+h4 {
   padding: 0;
   margin: 0;
 }
@@ -76,5 +84,5 @@ h3 {
 button {
   background: none;
   border: none;
+  cursor: pointer;
 }
-
