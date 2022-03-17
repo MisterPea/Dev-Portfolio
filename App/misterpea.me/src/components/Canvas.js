@@ -1,13 +1,10 @@
-/* eslint-disable no-console */
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import aboutImageBASE64 from './AboutImage';
-
-// const image = require('../../assets/MB.jpg').default;
-// const image = require('../../assets/autumnal-cannibalism.jpg').default;
 
 export default function AboutImageCanvas({ darkMode }) {
   const k = 9; // kernel size;
+  const firstRun = useRef(null);
 
   const uniqueId = () => {
     return `on-canvas-${darkMode ? "dark" : "light"}`;
@@ -32,7 +29,6 @@ export default function AboutImageCanvas({ darkMode }) {
     ctx.strokeStyle = "white";
     ctx.stroke();
     ctx.closePath();
-    console.log((k / 2) * (1 - val) - 5);
   }
   function renderLightLine(ctx, x, y, val) {
     ctx.beginPath();
@@ -137,12 +133,15 @@ export default function AboutImageCanvas({ darkMode }) {
   }
 
   useEffect(() => {
+    if (firstRun.current === null) {
+      firstRun.current = true;
+      drawImage()
+        .then((img) => addImage(img))
+        .then(({ imageData, onCtx }) => parseImageData(imageData, onCtx))
+        .then(({ ctx, sampledData }) => renderAnimation(ctx, sampledData));
+    }
+  });
 
-    drawImage()
-      .then((img) => addImage(img))
-      .then(({ imageData, onCtx }) => parseImageData(imageData, onCtx))
-      .then(({ ctx, sampledData }) => renderAnimation(ctx, sampledData));
-  }, []);
 
   return (
     <div className="main-div" />

@@ -1,5 +1,5 @@
 .nav-bar {
-  padding: 20px 5px 0;
+  padding: 20px 0 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -10,15 +10,19 @@
 
 .site-title {
   @include text-two;
+  backdrop-filter: blur(10px);
   color: var(--text);
   font-size: 1.5em;
-  background-color: var(--background);
+  // background-color: var(--background);
   margin-right: 25%;
   padding-right: 5px;
   border-radius: 0 8px 8px 0;
+  border-top: 1px var(--border-line) solid;
+  border-right: 1px var(--border-line) solid;
+  border-bottom: 1px var(--border-line) solid;
   height: 1.5em;
   line-height: 1.25em;
-  transition: background-color 300ms ease-in-out;
+  // transition: background-color 300ms ease-in-out;
   cursor: pointer;
   span {
     @include text-three;
@@ -32,57 +36,52 @@ nav {
 }
 
 .nav-ul {
-  background-color: var(--background);
+  backdrop-filter: blur(10px);
   display: flex;
   float: right;
   padding-left: 5px;
   border-radius: 8px 0 0 8px;
+  border-top: 1px var(--border-line) solid;
+  border-left: 1px var(--border-line) solid;
+  border-bottom: 1px var(--border-line) solid;
   position: relative;
-  transition: background-color 300ms ease-in-out;
-  &::before {
+  padding-right: 10px;
+  &::after {
     content: "";
     position: absolute;
     display: block;
     height: 90%;
-    opacity: calc(var(--nav-line-opacity) * var(--nav-line-adj-opacity));
-    background-color:rgb(255, 255, 255);
+    opacity: calc(var(--nav-line-opacity) * 0.6);
+    border-left: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
     width: var(--nav-line-width);
     left: var(--nav-line-left);
     bottom: 5%;
-    border-radius: 7px;
-    transition: all 350ms;
-    mix-blend-mode: soft-light;
-    pointer-events: none;
-  }
-  &::after{
-    content: "";
-    position: absolute;
-    display: block;
-    height: 90%;
-    opacity: calc(var(--nav-line-opacity) * 0.7);
-    border: 1px solid var(--accent);
-    width: var(--nav-line-width);
-    left: var(--nav-line-left);
-    bottom: 5%;
-    border-radius: 7px;
-    transition: all 350ms;
+    transition: all 350ms cubic-bezier(.52,.02,.6,1);
     pointer-events: none;
   }
   li {
     cursor: pointer;
+    &.active {
+      p {
+        color: var(--text-highlight);
+      }
+    }
+    p {
+      @include text-three;
+      color: var(--accent);
+      font-size: 1.4em;
+      padding: 0 5px;
+      height: 1.6em;
+      line-height: 1.4em;
+      transition: color 350ms cubic-bezier(.52,.02,.6,1) ;
+    }
   }
 
   li:focus {
     outline: none; // <------ Change on non-mobile sizes.
   }
-  p {
-    @include text-three;
-    color: var(--accent);
-    font-size: 1.4em;
-    padding: 0 5px;
-    height: 1.6em;
-    line-height: 1.4em;
-  }
+  
 }
 
 .theme-icon {

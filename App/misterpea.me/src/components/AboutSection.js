@@ -4,6 +4,7 @@ import AboutImageCanvas from './Canvas';
 import { useState, useEffect, useRef } from 'react';
 
 export default function AboutSection({ currentTheme }) {
+  const [localTheme, setLocalTheme] = useState(currentTheme);
   const [moreText, setMoreText] = useState(false);
   const [hover, setHover] = useState(false);
   const moreTextHeight = useRef(0);
@@ -11,6 +12,12 @@ export default function AboutSection({ currentTheme }) {
   useEffect(() => {
     moreTextHeight.current = `${document.querySelector('.more-text').scrollHeight}px`;
   });
+
+  useEffect(() => {
+    if (currentTheme !== null) {
+      setLocalTheme(currentTheme);
+    }
+  }, [currentTheme]);
 
   function handleTextToggle() {
     setMoreText((s) => !s);
@@ -31,13 +38,14 @@ export default function AboutSection({ currentTheme }) {
   return (
     <div className='section about-sec'>
       <div className='lines top' />
-      <div className='main-content'>
+      <div className='main-content observable'>
         <h1 className='section-title'>about:</h1>
         <div className='section-text-wrapper'>
-          {currentTheme === 'dark' ?
-            <div key="dark" className='image dark'><AboutImageCanvas darkMode={true} /></div> :
-            <div key="light" className='image light' ><AboutImageCanvas darkMode={false} /></div>
-          }
+          <div key="profile-image" className='image'>{
+            localTheme === 'dark' ?
+              <AboutImageCanvas key="dark" darkMode={true} /> :
+              <AboutImageCanvas key="light" darkMode={false} />
+          }</div>
           <div className='section-text'>
             <p>Mister Pea is me, Perry Angelora, and this website is the home-base
               of my programmatical wares. I am a serial-creator, a player of pianos,
