@@ -75,7 +75,7 @@ export default function WaresSection() {
                   <h4>Launch Project</h4>
                   <div className='wares-arrow-icon'><MdArrowForward /></div>
                 </button>
-                <button onClick={() => buttonClick('https://github.com/MisterPea/NYTimes-Aggregator')}>
+                <button onClick={() => buttonClick('https://github.com/MisterPea/DragDrop')}>
                   <h4>View on GitHub</h4>
                   <div className='wares-arrow-icon'><MdArrowForward /></div>
                 </button>
