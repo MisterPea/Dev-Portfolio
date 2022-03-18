@@ -38,35 +38,37 @@ export default function AboutSection({ currentTheme }) {
   return (
     <div className='section about-sec'>
       <div className='lines top' />
-      <div className='main-content observable'>
-        <h1 className='section-title'>about:</h1>
-        <div className='section-text-wrapper'>
-          <div key="profile-image" className='image'>{
-            localTheme === 'dark' ?
-              <AboutImageCanvas key="dark" darkMode={true} /> :
-              <AboutImageCanvas key="light" darkMode={false} />
-          }</div>
-          <div className='section-text'>
-            <p>Mister Pea is me, Perry Angelora, and this website is the home-base
-              of my programmatical wares. I am a serial-creator, a player of pianos,
-              maker of images and a lover of information.
-            </p>
-            <p
-              className={`more-text ${moreText ? "visible" : "hidden"}`}
-              style={{ height: `${moreText ? moreTextHeight.current : "0px"}` }}
-            >I earned my BFA from the University of Central Florida and my
-              MFA from the Pratt Institute, Brooklyn. I&rsquo;ve been the recipient of the New York
-              Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for
-              the Alexander Rutsch Award for Painting. I&rsquo;ve held various positions in a variety
-              of venues, from consulting, to publishing, to freelance.
-            </p>
-            <div
-              onClick={handleTextToggle}
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-              typeof='button'
-              className={`more-button ${hover ? "hover" : ""}`}>
-              {moreText ? <p className={moreText ? "less" : ""}><span>←</span>less</p> : <p className={moreText ? "" : "more"}>more<span>→</span></p>}
+      <div className='main-content'>
+        <div className='about-content-wrapper'>
+          <h1 className='section-title'>about:</h1>
+          <div className='section-text-wrapper'>
+            <div key="profile-image" className='image'>{
+              localTheme === 'dark' ?
+                <AboutImageCanvas key="dark" darkMode={true} /> :
+                <AboutImageCanvas key="light" darkMode={false} />
+            }</div>
+            <div className='section-text'>
+              <p>Mister Pea is me, Perry Angelora, and this website is the home-base
+                of my programmatical wares. I am a serial-creator, a player of pianos,
+                maker of images and a lover of information.
+              </p>
+              <p
+                className={`more-text ${moreText ? "visible" : "hidden"}`}
+                style={{ height: `${moreText ? moreTextHeight.current : "0px"}` }}
+              >I earned my BFA from the University of Central Florida and my
+                MFA from the Pratt Institute, Brooklyn. I&rsquo;ve been the recipient of the New York
+                Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for
+                the Alexander Rutsch Award for Painting. I&rsquo;ve held various positions in a variety
+                of venues, from consulting, to publishing, to freelance.
+              </p>
+              <div
+                onClick={handleTextToggle}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                typeof='button'
+                className={`more-button ${hover ? "hover" : ""}`}>
+                {moreText ? <p className={moreText ? "less" : ""}><span>←</span>less</p> : <p className={moreText ? "" : "more"}>more<span>→</span></p>}
+              </div>
             </div>
           </div>
         </div>
