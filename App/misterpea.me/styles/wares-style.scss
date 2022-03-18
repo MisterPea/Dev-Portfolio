@@ -56,17 +56,24 @@
     font-size: 1rem;
     @include text-one;
     color: var(--text);
+    @include tablet {
+      @include text-two;
+    }
   }
   .extra-text {
     max-height: 0;
     overflow: clip;
     opacity: 0;
-    // display: none; // <------ change on non-mobile sizes.
     transition: opacity 300ms cubic-bezier(.22,.6,.67,.95);
     @include tablet {
+      @include text-one;
       max-height: 100%;
-      opacity: 0.8;
+      opacity: 0.9;
     }
+  }
+
+  .wares-li {
+    cursor: pointer;
   }
 
   li {
@@ -124,12 +131,17 @@
   .image-side {
     overflow: hidden;
     flex-shrink: 0;
-    height: 150px;
-    width: 150px;
+    height: 135px;
+    width: 135px;
     background-color: var(--accent);
     position: relative;
     border-radius: 3px;
     border: 0.5px solid var(--accent-darker);
+    transition: all 400ms ease-out;
+    @include tablet {
+      height: 150px;
+      width: 150px;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -179,5 +191,6 @@
 
   .text-side {
     flex: 1;
+    margin-right: 40px;
   }
 }
