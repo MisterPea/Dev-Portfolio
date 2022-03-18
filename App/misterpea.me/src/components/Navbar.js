@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
 export default function Navbar({ currentTheme, toggleTheme }) {
   let highlight = null;
+  let storedActiveId = null;
 
   const navElement = useRef({
     landing: null,
@@ -33,6 +34,7 @@ export default function Navbar({ currentTheme, toggleTheme }) {
 
   // This method handles the movement of the box around the menu items
   function handleHighlight(activeId) {
+    storedActiveId = activeId;
     const rootStyle = document.documentElement.style;
 
     if (activeId === 'landing-sec') {
@@ -71,6 +73,11 @@ export default function Navbar({ currentTheme, toggleTheme }) {
     ));
   };
 
+  // we use this to resize the vertical lines highlighting the current section
+  useEffect(() => {
+    window.addEventListener("resize", () => handleHighlight(storedActiveId))
+  });
+
   useEffect(() => {
     const sectionClasses = document.querySelectorAll('.section');
     const navArray = Object.keys(navElement.current);
@@ -88,7 +95,7 @@ export default function Navbar({ currentTheme, toggleTheme }) {
     observer.observe(intersect.current.about);
     observer.observe(intersect.current.wares);
     observer.observe(intersect.current.connect);
-  }, []);
+  });
 
 
   function handleLandingClick() {
