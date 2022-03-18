@@ -9,7 +9,13 @@
   }
 
   .section-title {
-    margin-bottom: 100px;
+    margin-bottom: 7rem;
+    @include tablet {
+      margin-bottom: 10rem;
+    }
+    @include desktop {
+      margin-bottom: 13rem;
+    }
   }
 
   & .lines {
@@ -27,11 +33,18 @@
     flex-direction: row;
     padding-top: 10px;
     margin: 20px auto;
-    width: 250px;
+    width: 300px;
     justify-content: space-between;
+    transition: width 300ms ease-in-out;
+    @include tablet {
+      width: 400px;
+      margin-bottom: 40px;
+    }
+
     li {
       position: relative;
       z-index: 1;
+      margin: 0 10px;
     }
 
     .linkedIn-icon,
@@ -45,12 +58,23 @@
         width: 2.5em;
         height: 2.5em;
         padding-bottom: 1px;
+        @include tablet {
+          width: 3em;
+          height: 3em;
+        }
+        @include desktop {
+          width: 4em;
+          height: 4em;
+        }
       }
       .linkedIn-svg,
       .instagram-svg,
       .twitter-svg,
       .email-svg {
         padding: 0.5em;
+        @include desktop {
+          padding: 0.7em;
+        }
       }
       &::before {
         content: "";
@@ -61,8 +85,15 @@
         width: 2.5em;
         z-index: -10;
         border-radius: 50%;
+        @include tablet {
+          width: 3em;
+          height: 3em;
+        }
+        @include desktop {
+          width: 4em;
+          height: 4em;
+        }
       }
-      // <------ This is for desktop only
       &::after {
         content: "";
         position: absolute;
@@ -72,14 +103,23 @@
         height: 2.5em;
         width: 2.5em;
         z-index: 0;
-        left:0;
+        left: 0;
         border-radius: 50%;
         transition: all 250ms;
-
+        @include tablet {
+          width: 3em;
+          height: 3em;
+        }
+        @include desktop {
+          width: 4em;
+          height: 4em;
+        }
       }
       &:hover::after {
-        opacity: 0.4;
-        transform: scale(1);
+        @include desktop {
+          opacity: 0.4;
+          transform: scale(1);
+        }
       }
     }
   }

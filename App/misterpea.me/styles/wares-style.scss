@@ -15,13 +15,29 @@
     flex: 2;
   }
 
+  .wares-text-wrapper {
+    @include desktop {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+  }
+
   .section-title {
     flex: 1;
+    @include desktop {
+     margin: 0;
+    }
   }
 
   ul {
     flex: 1;
     margin: 20px 10px 0;
+    @include tablet {
+      margin: 20px 40px 0;
+    }
+    @include desktop {
+      margin: 20px 0 0;
+    }
   }
 
   h3 {
@@ -42,7 +58,15 @@
     color: var(--text);
   }
   .extra-text {
-    display: none; // <------ change on non-mobile sizes.
+    max-height: 0;
+    overflow: clip;
+    opacity: 0;
+    // display: none; // <------ change on non-mobile sizes.
+    transition: opacity 300ms cubic-bezier(.22,.6,.67,.95);
+    @include tablet {
+      max-height: 100%;
+      opacity: 0.8;
+    }
   }
 
   li {

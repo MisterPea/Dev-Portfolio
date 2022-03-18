@@ -3,15 +3,18 @@
   flex-direction: column;
 
   & .lines {
-    flex:2;
+    flex: 2;
     width: 100%;
     background-color: rgba(222, 184, 135, 0.001);
+    @include tablet {
+      flex: 1.5;
+    }
   }
   & .bottom {
     flex: 3;
   }
   & .text-wrapper {
-    background-color:var(--background);
+    background-color: var(--background);
     transition: background-color 300ms ease-in-out;
   }
 }
@@ -19,11 +22,27 @@
 .logo-large {
   @include titling;
   color: var(--logo);
-  font-size: 2.25em;
+  font-size: 2.25rem;
   line-height: 2em;
   margin-left: 10px;
+  padding-left: 0;
+  transition: font-size 300ms ease-in-out;
   h1 {
     margin: 0;
+  }
+  @include tablet {
+    font-size: 3.25rem;
+    padding-left: 20px;
+  }
+}
+
+.text-width-min {
+  margin: 0 auto;
+  @include tablet {
+    max-width: 700px;
+  }
+  @include desktop {
+    max-width: 800px;
   }
 }
 
@@ -35,6 +54,13 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  @include tablet {
+    padding-right: 30px;
+  }
+  @include desktop {
+    @include text-one;
+    font-size: 1.125rem;
+  }
   p {
     width: fit-content;
     font-size: 1.125em;
