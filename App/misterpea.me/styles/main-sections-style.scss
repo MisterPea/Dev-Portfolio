@@ -53,6 +53,10 @@
       flex: 3;
     }
   }
+  .span-link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 .section-title {
@@ -95,6 +99,7 @@
   p {
     font-size: 1.1rem;
     margin: 0 5px;
+    
   }
 
   .image {

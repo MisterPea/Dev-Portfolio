@@ -22,7 +22,7 @@
   height: 1.5em;
   line-height: 1.25em;
   cursor: pointer;
-  transition: padding 300ms cubic-bezier(.22,.6,.67,.95);
+  transition: padding 300ms cubic-bezier(0.22, 0.6, 0.67, 0.95);
   @include tablet {
     padding: 3px 10px;
     height: unset;
@@ -49,7 +49,7 @@ nav {
   border-top: 1px var(--border-line) solid;
   border-left: 1px var(--border-line) solid;
   border-bottom: 1px var(--border-line) solid;
-  transition: padding 300ms cubic-bezier(.22,.6,.67,.95);
+  transition: padding 300ms cubic-bezier(0.22, 0.6, 0.67, 0.95);
   @include tablet {
     padding: 3px 5px;
     padding-right: 10px;
@@ -65,7 +65,7 @@ nav {
     width: var(--nav-line-width);
     left: var(--nav-line-left);
     bottom: 15%;
-    transition: all 350ms cubic-bezier(.52,.02,.6,1);
+    transition: all 350ms cubic-bezier(0.52, 0.02, 0.6, 1);
     pointer-events: none;
   }
   li {
@@ -82,7 +82,7 @@ nav {
       padding: 0 5px;
       height: 1.6em;
       line-height: 1.4em;
-      transition: color 350ms cubic-bezier(.52,.02,.6,1) ;
+      transition: color 350ms cubic-bezier(0.52, 0.02, 0.6, 1);
     }
     @include tablet {
       padding: 0 5px;
@@ -94,11 +94,10 @@ nav {
 
   li:focus {
     outline: none;
-    @include desktop{
+    @include desktop {
       outline: unset;
     }
   }
-  
 }
 
 .theme-icon {
