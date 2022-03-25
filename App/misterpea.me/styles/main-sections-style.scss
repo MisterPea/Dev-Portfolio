@@ -6,11 +6,13 @@
   height: 101vh;
   overflow: auto;
   position: relative;
+  scrollbar-color: var(--background) var(--accent);
 }
 
 .line-pattern {
   height: 101vh;
-  width: 100vw;
+  width: 110vw;
+  overflow-x: clip;
   position: absolute;
   top: 0;
   background-attachment: scroll;
@@ -18,6 +20,7 @@
   background: var(--lines);
   background-size: 13px;
   background-repeat: repeat;
+  margin-left: -10%;
 }
 
 .section {
@@ -40,9 +43,19 @@
     flex: 1.5;
     width: 100%;
     background-color: rgba(165, 95, 95, 0.001);
+    @include tablet {
+      // flex:1;
+    }
   }
   & .bottom {
     flex: 2;
+    @include tablet {
+      flex: 3;
+    }
+  }
+  .span-link {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -50,23 +63,43 @@
   margin: 0;
   margin-left: 20px;
   @include titling;
-  font-size: 6em;
+  font-size: 6rem;
   height: 1em;
   line-height: 1em;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--text-outline);
   color: rgba($color: #000000, $alpha: 0);
-  transition: color 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  @include tablet {
+    margin-left: 40px;
+    font-size: 9rem;
+  }
+  @include desktop {
+    margin-left: 200px;
+    font-size: 12rem;
+  }
 }
 
+.about-content-wrapper {
+  @include desktop{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
 .section-text-wrapper {
   @include text-one;
   margin: 0 20px 20px;
   color: var(--text);
-
+  @include tablet {
+    margin: 0 40px 20px;
+  }
+  @include desktop {
+    margin: 0 250px 30px;
+  }
   p {
     font-size: 1.1rem;
     margin: 0 5px;
+    
   }
 
   .image {
@@ -76,7 +109,20 @@
     background-color: rgba(0, 0, 0, 0.001);
     margin-left: 5px;
     border-radius: 50%;
-   
+    transition: all 300ms cubic-bezier(0.22, 0.6, 0.67, 0.95);
+    @include tablet {
+      height: 175px;
+      width: 175px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    @include desktop{
+      height: 200px;
+      width: 200px;
+      margin-left: 100px;
+      margin-bottom: 20px;
+    }
+
     canvas {
       width: 100%;
       height: 100%;
@@ -89,7 +135,7 @@
     #on-canvas-dark {
       display: var(--canvas-display-dark);
     }
-    
+
     @keyframes about-image {
       0% {
         opacity: 0;

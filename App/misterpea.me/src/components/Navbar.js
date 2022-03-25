@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
 export default function Navbar({ currentTheme, toggleTheme }) {
   let highlight = null;
+  let storedActiveId = null;
 
   const navElement = useRef({
     landing: null,
@@ -33,6 +34,7 @@ export default function Navbar({ currentTheme, toggleTheme }) {
 
   // This method handles the movement of the box around the menu items
   function handleHighlight(activeId) {
+    storedActiveId = activeId;
     const rootStyle = document.documentElement.style;
 
     if (activeId === 'landing-sec') {
@@ -71,6 +73,11 @@ export default function Navbar({ currentTheme, toggleTheme }) {
     ));
   };
 
+  // we use this to resize the vertical lines highlighting the current section
+  useEffect(() => {
+    window.addEventListener("resize", () => handleHighlight(storedActiveId));
+  });
+
   useEffect(() => {
     const sectionClasses = document.querySelectorAll('.section');
     const navArray = Object.keys(navElement.current);
@@ -88,7 +95,7 @@ export default function Navbar({ currentTheme, toggleTheme }) {
     observer.observe(intersect.current.about);
     observer.observe(intersect.current.wares);
     observer.observe(intersect.current.connect);
-  }, []);
+  });
 
 
   function handleLandingClick() {
@@ -119,24 +126,42 @@ export default function Navbar({ currentTheme, toggleTheme }) {
         onClick={handleLandingClick}
         className='site-title'>mister<span>pea</span>.me</div>
       <nav>
-        <ul
-          onClick={(e) => harvestClick(e)}
-          className='nav-ul'
-        >
-          <li className='nav-button' id="about-btn" role="button" tabIndex={0}>
+        <ul onClick={(e) => harvestClick(e)} className='nav-ul'>
+          <li
+            id="about-btn"
+            role="button"
+            tabIndex={0}
+            aria-label="About Section"
+          >
             <p>about</p>
           </li>
-          <li className='nav-button' id="wares-btn" role="button" tabIndex={0}>
+          <li
+            id="wares-btn"
+            role="button"
+            tabIndex={0}
+            aria-label="Wares Section"
+          >
             <p>wares</p>
           </li>
-          <li className='nav-button' id="connect-btn" role="button" tabIndex={0}>
+          <li
+            id="connect-btn"
+            role="button"
+            tabIndex={0}
+            aria-label="Say Hello! Section"
+          >
             <p>connect</p>
           </li>
-          <li role="button" tabIndex={0} onClick={toggleTheme}>{
-            currentTheme === "light" ?
-              <BsFillMoonFill className='theme-icon moon' /> :
-              <BsSun className='theme-icon' />
-          }</li>
+          <li
+            role="button"
+            id="light-dark-mode"
+            tabIndex={0}
+            onClick={toggleTheme}
+            aria-label="Toggle Light/Dark Mode"
+          >{
+              currentTheme === "light" ?
+                <BsFillMoonFill className='theme-icon moon' /> :
+                <BsSun className='theme-icon' />
+            }</li>
         </ul>
       </nav>
     </div>

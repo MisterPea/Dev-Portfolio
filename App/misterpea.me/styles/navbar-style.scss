@@ -13,7 +13,6 @@
   backdrop-filter: blur(10px);
   color: var(--text);
   font-size: 1.5em;
-  // background-color: var(--background);
   margin-right: 25%;
   padding-right: 5px;
   border-radius: 0 8px 8px 0;
@@ -22,8 +21,12 @@
   border-bottom: 1px var(--border-line) solid;
   height: 1.5em;
   line-height: 1.25em;
-  // transition: background-color 300ms ease-in-out;
   cursor: pointer;
+  transition: padding 300ms cubic-bezier(0.22, 0.6, 0.67, 0.95);
+  @include tablet {
+    padding: 3px 10px;
+    height: unset;
+  }
   span {
     @include text-three;
     color: var(--accent);
@@ -39,25 +42,30 @@ nav {
   backdrop-filter: blur(10px);
   display: flex;
   float: right;
+  position: relative;
   padding-left: 5px;
+  padding-right: 10px;
   border-radius: 8px 0 0 8px;
   border-top: 1px var(--border-line) solid;
   border-left: 1px var(--border-line) solid;
   border-bottom: 1px var(--border-line) solid;
-  position: relative;
-  padding-right: 10px;
+  transition: padding 300ms cubic-bezier(0.22, 0.6, 0.67, 0.95);
+  @include tablet {
+    padding: 3px 5px;
+    padding-right: 10px;
+  }
   &::after {
     content: "";
     position: absolute;
     display: block;
-    height: 90%;
+    height: 70%;
     opacity: calc(var(--nav-line-opacity) * 0.6);
-    border-left: 2px solid var(--accent);
-    border-right: 2px solid var(--accent);
+    border-left: 1px solid var(--text-highlight);
+    border-right: 1px solid var(--text-highlight);
     width: var(--nav-line-width);
     left: var(--nav-line-left);
-    bottom: 5%;
-    transition: all 350ms cubic-bezier(.52,.02,.6,1);
+    bottom: 15%;
+    transition: all 350ms cubic-bezier(0.52, 0.02, 0.6, 1);
     pointer-events: none;
   }
   li {
@@ -74,14 +82,22 @@ nav {
       padding: 0 5px;
       height: 1.6em;
       line-height: 1.4em;
-      transition: color 350ms cubic-bezier(.52,.02,.6,1) ;
+      transition: color 350ms cubic-bezier(0.52, 0.02, 0.6, 1);
+    }
+    @include tablet {
+      padding: 0 5px;
+    }
+    @include desktop {
+      padding: 0 10px;
     }
   }
 
   li:focus {
-    outline: none; // <------ Change on non-mobile sizes.
+    outline: none;
+    @include desktop {
+      outline: unset;
+    }
   }
-  
 }
 
 .theme-icon {
