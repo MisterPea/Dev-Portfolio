@@ -10,11 +10,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./App/misterpea.me
     steps:
       - uses: actions/checkout@v2
-        with:
-          node-version: 16
+      - uses: actions/setup-node@v2
+        with: 
+          node-version: '16'
       - run: npm ci
       - run: npm run export
       - uses: aws-actions/configure-aws-credentials@v1
@@ -23,6 +26,6 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-2
       - run: aws s3 sync ./out s3://misterpea.me
-      - run: aws cloudfront create-invlidation --distribution-id ${{ secrets.PORTFOLIO_DISTRIBUTION_ID }} --paths /index.html
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.PORTFOLIO_DISTRIBUTION_ID }} --paths /index.html
 
       
