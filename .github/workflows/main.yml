@@ -22,7 +22,7 @@ jobs:
       - run: npm run export
 
       - name: Configure AWS Credentials
-        run: "Secret: {secrets.TEST_SECRET}"
+        run: echo ${{secrets.TEST_SECRET}}
       #   uses: aws-actions/configure-aws-credentials@v1
       #   with: 
       #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
