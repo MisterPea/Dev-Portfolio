@@ -7,13 +7,15 @@
 
 :root {
   --background: rgb(240, 236, 230);
+  --background-section:hsl(38, 25%, 95%);;
   --background-opacity: rgba(240, 236, 230, 0.6);
   --accent: rgb(166, 148, 129);
   --accent-darker: rgb(136, 120, 104);
+  --accent-separate: rgba(136, 120, 104, 0.30);
   --border-line: rgba(136, 120, 104, 0.3);
   --text: #000;
   --text-highlight: rgb(97, 85, 72);
-  --lines: url("data:image/svg+xml,%3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 200'%3E%3Cpath d='M10.5,200h-1a245,245,0,0,0,4.9-49.7c.1-20.4-2.5-35.4-5-50s-5-29.6-5-50A254,254,0,0,1,9.5,0h1A252.3,252.3,0,0,0,5.4,50.3c0,20.4,2.6,35.4,5,49.9s5.1,29.6,5,50.1A245,245,0,0,1,10.5,200Z' transform='translate(-4.4 0)' style='fill: %23c4d8ad'/%3E%3C/svg%3E%0A");
+  --lines: url("data:image/svg+xml,%3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 200'%3E%3Cpath d='M10.5,200h-1a245,245,0,0,0,4.9-49.7c.1-20.4-2.5-35.4-5-50s-5-29.6-5-50A254,254,0,0,1,9.5,0h1A252.3,252.3,0,0,0,5.4,50.3c0,20.4,2.6,35.4,5,49.9s5.1,29.6,5,50.1A245,245,0,0,1,10.5,200Z' transform='translate(-4.4 0)' style='fill: %23c4d8ad80'/%3E%3C/svg%3E%0A");
   --text-outline: #b8b091;
   --launch-one: rgb(105, 177, 124);
   --launch-two: rgb(164, 210, 175);
@@ -29,13 +31,15 @@
 
 [data-theme="dark"] {
   --background: #000;
+  --background-section: #000;
   --background-opacity: rgba(0, 0, 0, 0.6);
   --accent: rgb(83, 169, 207);
   --accent-darker: rgb(72, 107, 129);
+  --accent-separate: rgba(72, 107, 129, 0.60);
   --border-line: rgba(72, 107, 129, 0.3);
   --text: #fff;
   --text-highlight: rgb(204, 239, 255);
-  --lines: url("data:image/svg+xml,%3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 200'%3E%3Cpath d='M10.5,200h-1a245,245,0,0,0,4.9-49.7c.1-20.4-2.5-35.4-5-50s-5-29.6-5-50A254,254,0,0,1,9.5,0h1A252.3,252.3,0,0,0,5.4,50.3c0,20.4,2.6,35.4,5,49.9s5.1,29.6,5,50.1A245,245,0,0,1,10.5,200Z' transform='translate(-4.4 0)' style='fill: %23656565'/%3E%3C/svg%3E%0A");
+  --lines: url("data:image/svg+xml,%3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 200'%3E%3Cpath d='M10.5,200h-1a245,245,0,0,0,4.9-49.7c.1-20.4-2.5-35.4-5-50s-5-29.6-5-50A254,254,0,0,1,9.5,0h1A252.3,252.3,0,0,0,5.4,50.3c0,20.4,2.6,35.4,5,49.9s5.1,29.6,5,50.1A245,245,0,0,1,10.5,200Z' transform='translate(-4.4 0)' style='fill: %2365656575'/%3E%3C/svg%3E%0A");
   --text-outline: #656565;
   --launch-one: rgb(83, 169, 207);
   --launch-two: rgb(72, 107, 124);
@@ -47,6 +51,7 @@
   --nav-line-adj-opacity: 1;
   --canvas-display-dark: block;
   --canvas-display-light: none;
+
 }
 
 html {
@@ -69,10 +74,10 @@ body {
   overflow-y: scroll;
   font-size: 100%;
   line-height: 1.5;
-  // @supports(padding: max(0px)) {
-  //   padding-left: max(5px, env(safe-area-inset-left));
-  //   padding-right: max(5px, env(safe-area-inset-right));
-  // }
+  @supports(padding: max(0px)) {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }
 
 li {
