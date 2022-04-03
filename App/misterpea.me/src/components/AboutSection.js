@@ -19,6 +19,9 @@ export default function AboutSection({ currentTheme }) {
     }
   }, [currentTheme]);
 
+  const mainText = "Mister Pea is me, Perry Angelora, and this website is the home-base of my programmatical wares. I am a serial-creator and a lover of information. I'm fond of JavaScript, Node, React, Redux, NoSQL, Docker…but I'm not dogmatic about any particular stack; I appreciate simplicity and deliberateness."
+  const moreTextContent = "Other aspects of me: I earned my BFA from the University of Central Florida and my MFA from the Pratt Institute, Brooklyn. I’ve been the recipient of the New York Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for the Alexander Rutsch Award for Painting."
+
   function handleTextToggle() {
     setMoreText((s) => !s);
   }
@@ -52,19 +55,11 @@ export default function AboutSection({ currentTheme }) {
                 <AboutImageCanvas key="light" darkMode={false} />
             }</div>
             <div className='section-text' role="document">
-              <p>Mister Pea is me, Perry Angelora, and this website is the home-base of my programmatical
-                wares. I am a serial-creator, a player of pianos, maker of images and a lover of information.
-                I&rsquo;m fond of JavaScript, Node, React, Redux, NoSQL, Docker…but I&rsquo;m not dogmatic
-                about any particular stack; I appreciate simplicity and deliberateness.
-              </p>
-              <p
+              <p>{mainText}</p>
+              <p 
                 className={`more-text ${moreText ? "visible" : "hidden"}`}
                 style={{ height: `${moreText ? moreTextHeight.current : "0px"}` }}
-              >Other, dare I say, interesting things about me: I earned my BFA from the
-                <strong> University of Central Florida</strong> and my MFA from the <strong>Pratt Institute</strong>, Brooklyn.
-                I&rsquo;ve been the recipient of the New York Foundation for the Arts Fellowship
-                in Printmaking/Drawing/Book Arts and a finalist for the Alexander Rutsch Award
-                for Painting. Check out my work history on <span role={"button"} className='span-link' onClick={linkedInButtonClick}>LinkedIn</span>, or my recent projects, below.
+              >{moreTextContent}
               </p>
               <div
                 onClick={handleTextToggle}
