@@ -57,8 +57,8 @@ export default function WaresSection() {
               tabIndex={0}
             >
               <div className='text-side'>
-                <h2>Ny Times Aggregator & Daily email subscription</h2>
-                <p>NYT api integration for Top Stories, with the ability for a daily email.</p>
+                <h2>NY Times Aggregator & Daily Email Subscription</h2>
+                <p>NY Times API integration for Top Stories, with the ability for a daily email.</p>
                 <p className='extra-text' >An implementation of The NY Times Top Stories API.
                   With an email login, users can choose topics and receive a once-daily email with any
                   stories related to those topics.</p>
