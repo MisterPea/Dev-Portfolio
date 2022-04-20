@@ -9,11 +9,17 @@ export default function ConnectSection() {
 
   function renderEmail() {
     const decoded = [];
-    const sorted = ' !.:=?@Jabceghijlmnoprstuy';
-    const numArray = [17, 8, 14, 16, 23, 19, 3, 13, 11, 16, 16, 19, 23, 13, 11, 21, 11, 6, 17, 14, 22, 23, 11, 21, 20, 11, 8, 2, 17, 11, 5, 22, 24, 9, 15, 11, 10, 23, 4, 7, 24, 22, 23, 0, 22, 8, 25, 14, 18, 12, 0, 13, 11, 16, 16, 19, 1];
+    const sorted = ' _:!?.@=abceghijJlmnoprstuy';
+    const numArray = [
+      18,  8, 14, 17, 24, 20,  2, 13, 11, 17, 17, 20,
+       1, 24, 13, 11, 22, 11,  6, 18, 14, 23, 24, 11,
+      22, 21, 11,  8,  5, 18, 11,  4, 23, 25,  9, 15,
+      11, 10, 24,  7, 16, 25, 23, 24,  0, 23,  8, 26,
+      14, 19, 12,  0, 13, 11, 17, 17, 20,  3
+    ];
     for (let i = 0; i < numArray.length; i += 1) {
       decoded.push(sorted[numArray[i]]);
-    }
+    }0
     return decoded.join('');
   }
   function emailClick() {
