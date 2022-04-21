@@ -16,7 +16,7 @@
   }
 
   .wares-text-wrapper {
-    @include desktop {
+    @include tablet {
       max-width: 1024px;
       margin: 0 auto;
     }

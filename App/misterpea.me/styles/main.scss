@@ -27,6 +27,8 @@
   --nav-line-adj-opacity: 0.4;
   --canvas-display-dark: none;
   --canvas-display-light: block;
+  --scroll-tab: rgb(222, 212, 197);
+  --scroll-track: rgb(240, 236, 230);
 }
 
 [data-theme="dark"] {
@@ -51,7 +53,8 @@
   --nav-line-adj-opacity: 1;
   --canvas-display-dark: block;
   --canvas-display-light: none;
-
+  --scroll-tab: rgb(40, 58, 65);
+  --scroll-track: rgb(14, 22, 25);
 }
 
 html {
@@ -71,13 +74,18 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: hidden;
   font-size: 100%;
   line-height: 1.5;
   @supports(padding: max(0px)) {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
+}
+
+html,
+body {
+  overscroll-behavior-y: contain;
 }
 
 li {

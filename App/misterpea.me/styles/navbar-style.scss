@@ -8,13 +8,20 @@
   z-index: 15;
 }
 
+@-moz-document url-prefix() {
+  .site-title,
+  .nav-ul {
+    background-color: var(--background);
+  }
+}
+
 .site-title {
   @include text-two;
   backdrop-filter: blur(10px);
   color: var(--text);
   font-size: 1.5em;
   margin-right: 25%;
-  padding:0 10px;
+  padding: 0 10px;
   border-radius: 0 8px 8px 0;
   border-top: 1px var(--border-line) solid;
   border-right: 1px var(--border-line) solid;
@@ -23,6 +30,7 @@
   line-height: 1.25em;
   cursor: pointer;
   transition: padding 300ms cubic-bezier(0.22, 0.6, 0.67, 0.95);
+
   @include tablet {
     padding: 3px 10px;
     height: unset;
