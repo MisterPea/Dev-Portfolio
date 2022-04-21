@@ -48,8 +48,8 @@ export default function Navbar({ currentTheme, toggleTheme }) {
 
     } else {
       const menuElement = document.getElementById(menuHash[activeId]);
-      const elementWidth = menuElement.offsetWidth;
-      const elementLeft = menuElement.offsetLeft;
+      const elementWidth = menuElement && menuElement.offsetWidth;
+      const elementLeft = menuElement && menuElement.offsetLeft || 0;
 
       rootStyle.setProperty('--nav-line-width', `${elementWidth}px`);
       rootStyle.setProperty('--nav-line-left', `${elementLeft}px`);
@@ -62,8 +62,11 @@ export default function Navbar({ currentTheme, toggleTheme }) {
         previous.classList.remove('active');
       }
 
-      active.classList.add('active');
-      highlight = active.id;
+      // Wait for DOM to populate
+      if (active) {
+        active.classList.add('active');
+        highlight = active.id;
+      }
     }
   }
 
