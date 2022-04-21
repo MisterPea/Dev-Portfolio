@@ -23,7 +23,7 @@ export default function AboutImageCanvas({ darkMode }) {
   function renderDarkLine(ctx, x, y, val) {
     const density = ((k / 2) * (1 - val) - 5) * -1;
     ctx.beginPath();
-    ctx.moveTo((x - k / 2), (y - k / 2));
+    ctx.moveTo((x - k / 1.9), (y - k / 1.9));
     ctx.lineTo(x + k / 2, y + k / 2);
     ctx.lineWidth = density;
     ctx.strokeStyle = "white";
@@ -32,7 +32,7 @@ export default function AboutImageCanvas({ darkMode }) {
   }
   function renderLightLine(ctx, x, y, val) {
     ctx.beginPath();
-    ctx.moveTo((x - k / 2), (y - k / 2));
+    ctx.moveTo((x - k / 1.9), (y - k / 1.9));
     ctx.lineTo(x + k / 2, y + k / 2);
     ctx.lineWidth = (k / 2) * (1 - val);
     ctx.stroke();
@@ -40,7 +40,7 @@ export default function AboutImageCanvas({ darkMode }) {
   }
 
   function renderDarkDot(ctx, x, y, val) {
-    const density = ((k / 2) * (1 - val) - 5) * -1;
+    const density = ((k / 1.9) * (1 - (val * .9)) - 5) * -1;
     ctx.beginPath();
     ctx.ellipse(x, y, density, density, 0, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
@@ -50,7 +50,7 @@ export default function AboutImageCanvas({ darkMode }) {
 
   function renderLightDot(ctx, x, y, val) {
     ctx.beginPath();
-    ctx.ellipse(x, y, (k / 2) * (1 - val), (k / 2) * (1 - val), 0, 0, 2 * Math.PI);
+    ctx.ellipse(x, y, (k / 1.9) * (1 - val), (k / 1.9) * (1 - val), 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
   }
