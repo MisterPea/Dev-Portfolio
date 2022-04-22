@@ -14,13 +14,30 @@ export default function AboutSection({ currentTheme }) {
   });
 
   useEffect(() => {
+    const aboutText = document.querySelector('.section-text');
+    const sectionWrap = document.querySelector('.sections-wrapper');
+    const checkAboutLocation = () => {
+      if (((sectionWrap.offsetTop - sectionWrap.scrollTop) / aboutText.offsetTop) < -1.15 && moreText === true) {
+        setMoreText(false);
+      }
+    }
+    window.addEventListener('scroll', checkAboutLocation, true);
+
+    return () => {
+      window.removeEventListener('scroll', checkAboutLocation, true);
+    };
+
+
+  }, []);
+
+  useEffect(() => {
     if (currentTheme !== null) {
       setLocalTheme(currentTheme);
     }
   }, [currentTheme]);
 
-  const mainText = "Mister Pea is me, Perry Angelora, and this website is the home-base of my programmatical wares. I am a serial-creator and a lover of information. I'm fond of JavaScript, Node, React, Redux, NoSQL, Docker…but I'm not dogmatic about any particular stack; I appreciate simplicity and deliberateness."
-  const moreTextContent = "Other aspects of me: I earned my BFA from the University of Central Florida and my MFA from the Pratt Institute, Brooklyn. I’ve been the recipient of the New York Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for the Alexander Rutsch Award for Painting."
+  const mainText = "Mister Pea is me, Perry Angelora, and this website is the home-base of my programmatical wares. I’m a serial-creator and iterator of ideas. Stack-wise, I’m partial to JavaScript (if only for its ubiquity and versatility) as well as React, Node, Redux, NoSQL and Docker. Overall I appreciate simplicity, deliberateness, and finding the right tool for the job.";
+  const moreTextContent = "Some other tidbits: I earned my BFA from the University of Central Florida and my MFA from the Pratt Institute, Brooklyn. I’ve been the recipient of the New York Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for the Alexander Rutsch Award for Painting.";
 
   function handleTextToggle() {
     setMoreText((s) => !s);
@@ -38,10 +55,6 @@ export default function AboutSection({ currentTheme }) {
     }
   }
 
-  function linkedInButtonClick() {
-    window.open("https://www.linkedin.com/in/perry-angelora/", '_blank');
-  }
-
   return (
     <div className='section about-sec'>
       <div className='lines top' />
@@ -56,7 +69,7 @@ export default function AboutSection({ currentTheme }) {
             }</div>
             <div className='section-text' role="document">
               <p>{mainText}</p>
-              <p 
+              <p
                 className={`more-text ${moreText ? "visible" : "hidden"}`}
                 style={{ height: `${moreText ? moreTextHeight.current : "0px"}` }}
               >{moreTextContent}
