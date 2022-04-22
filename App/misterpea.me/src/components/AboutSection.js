@@ -16,19 +16,26 @@ export default function AboutSection({ currentTheme }) {
   useEffect(() => {
     const aboutText = document.querySelector('.section-text');
     const sectionWrap = document.querySelector('.sections-wrapper');
-    const checkAboutLocation = () => {
-      if (((sectionWrap.offsetTop - sectionWrap.scrollTop) / aboutText.offsetTop) < -1.15 && moreText === true) {
-        setMoreText(false);
-      }
+    const aboutHeight = document.querySelector('.about-content-wrapper').scrollHeight
+
+    if (aboutText && sectionWrap) {
+      const checkAboutLocation = () => {
+      
+        const intersectTest = (aboutText.offsetTop - sectionWrap.scrollTop + (aboutHeight * 0.4)) < -0;
+        if (intersectTest && moreText === true) {
+          setMoreText(false);
+        }
+      };
+      window.addEventListener('scroll', checkAboutLocation, true);
     }
-    window.addEventListener('scroll', checkAboutLocation, true);
+
 
     return () => {
       window.removeEventListener('scroll', checkAboutLocation, true);
     };
 
 
-  }, []);
+  }, [moreText]);
 
   useEffect(() => {
     if (currentTheme !== null) {
