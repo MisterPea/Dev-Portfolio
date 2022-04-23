@@ -78,7 +78,7 @@ export default function Navbar({ currentTheme, toggleTheme }) {
 
   // we use this to resize the vertical lines highlighting the current section
   useEffect(() => {
-    window.addEventListener("resize", () => handleHighlight(storedActiveId));
+    window.addEventListener('resize', () => handleHighlight(storedActiveId));
   });
 
   useEffect(() => {
@@ -155,13 +155,13 @@ export default function Navbar({ currentTheme, toggleTheme }) {
             <p>connect</p>
           </li>
           <li
-            role="button"
+            role='button'
             id="light-dark-mode"
             tabIndex={0}
             onClick={toggleTheme}
             aria-label="Toggle Light/Dark Mode"
           >{
-              currentTheme === "light" ?
+              currentTheme === 'light' ?
                 <BsFillMoonFill className='theme-icon moon' /> :
                 <BsSun className='theme-icon' />
             }</li>

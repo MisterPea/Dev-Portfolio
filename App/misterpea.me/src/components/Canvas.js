@@ -7,7 +7,7 @@ export default function AboutImageCanvas({ darkMode }) {
   const firstRun = useRef(null);
 
   const uniqueId = () => {
-    return `on-canvas-${darkMode ? "dark" : "light"}`;
+    return `on-canvas-${darkMode ? 'dark' : 'light'}`;
   };
 
   function drawImage() {
@@ -26,7 +26,7 @@ export default function AboutImageCanvas({ darkMode }) {
     ctx.moveTo((x - k / 1.9), (y - k / 1.9));
     ctx.lineTo(x + k / 2, y + k / 2);
     ctx.lineWidth = density;
-    ctx.strokeStyle = "white";
+    ctx.strokeStyle = 'white';
     ctx.stroke();
     ctx.closePath();
   }
@@ -43,7 +43,7 @@ export default function AboutImageCanvas({ darkMode }) {
     const density = ((k / 1.9) * (1 - (val * .9)) - 5) * -1;
     ctx.beginPath();
     ctx.ellipse(x, y, density, density, 0, 0, 2 * Math.PI);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = 'white';
     ctx.fill();
     ctx.closePath();
   }
