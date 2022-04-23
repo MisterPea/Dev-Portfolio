@@ -6,7 +6,7 @@ import { SiNpm } from 'react-icons/si';
 export default function WaresSection() {
 
   function buttonClick(route) {
-    window.open(route, '_blank');
+    window.open(`https://${route}`, '_blank');
   }
 
   return (
@@ -19,7 +19,7 @@ export default function WaresSection() {
             <li
               role="button"
               className='wares-li'
-              onClick={() => buttonClick('https://s3ui.misterpea.me')}
+              onClick={(e) => buttonClick(e.target.dataset.link || 's3ui.misterpea.me')}
               tabIndex={0}
             >
               <div className='text-side'>
@@ -30,18 +30,14 @@ export default function WaresSection() {
                   Breadcrumb folder navigation, automatic renaming on files with the same name.
                   Bucket and folder navigation is done via query string; allowing bookmarking and sharing.</p>
                 <div className='wares-button-wrapper'>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://s3ui.misterpea.me')}>
-                    <h3>Launch Project</h3>
+                  <h3 tabIndex={0} role="button">
+                    Launch Project
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://github.com/MisterPea/s3-ui')}>
-                    <h3>View on GitHub</h3>
+                  </h3>
+                  <h3 tabIndex={0} role="button" data-link="github.com/MisterPea/s3-ui">
+                    View on GitHub
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
+                  </h3>
                 </div>
               </div>
               <div className='image-side'>
@@ -53,7 +49,7 @@ export default function WaresSection() {
             <li
               role="button"
               className='wares-li'
-              onClick={() => buttonClick('https://thetimespage.misterpea.me/us')}
+              onClick={(e) => buttonClick(e.target.dataset.link || 'thetimespage.misterpea.me/us')}
               tabIndex={0}
             >
               <div className='text-side'>
@@ -63,18 +59,14 @@ export default function WaresSection() {
                   With an email login, users can choose topics and receive a once-daily email with any
                   stories related to those topics.</p>
                 <div className='wares-button-wrapper'>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://thetimespage.misterpea.me/us')}>
-                    <h3>Launch Project</h3>
+                  <h3 role="button" tabIndex={0}>
+                    Launch Project
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://github.com/MisterPea/NYTimes-Aggregator')}>
-                    <h3>View on GitHub</h3>
+                  </h3>
+                  <h3 role="button" tabIndex={0} data-link="github.com/MisterPea/NYTimes-Aggregator">
+                    View on GitHub
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
+                  </h3>
                 </div>
               </div>
               <div className='image-side'>
@@ -85,9 +77,9 @@ export default function WaresSection() {
             </li>
             <li
               role="button"
-              tabIndex={0}
               className="wares-li"
-              onClick={() => buttonClick('https://www.npmjs.com/package/@misterpea/dragdrop')}
+              tabIndex={0}
+              onClick={(e) => buttonClick(e.target.dataset.link || 'www.npmjs.com/package/@misterpea/dragdrop')}
             >
               <div className='text-side'>
                 <h2>NPM Components</h2>
@@ -95,18 +87,14 @@ export default function WaresSection() {
                 <p>• DragAndDrop - A minimal React Component wrapper to simplify the
                   drag and drop of file(s) onto DOM elements.</p>
                 <div className='wares-button-wrapper'>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://www.npmjs.com/package/@misterpea/dragdrop')}>
-                    <h3>Launch Project</h3>
+                  <h3 tabIndex={0} role="button">
+                    View on NPM
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://github.com/MisterPea/DragDrop')}>
-                    <h3>View on GitHub</h3>
+                  </h3>
+                  <h3 tabIndex={0} role="button" data-link="github.com/MisterPea/DragDrop" >
+                    View on GitHub
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
+                  </h3>
                 </div>
               </div>
               <div className='image-side'>
@@ -117,26 +105,24 @@ export default function WaresSection() {
             </li>
             <li
               role="button"
-              tabIndex={0}
               className="wares-li"
-              onClick={() => buttonClick('https://github.com/MisterPea/Portfolio-2022')}
+              tabIndex={0}
+              onClick={(e) => buttonClick(e.target.dataset.link || 'github.com/MisterPea/Portfolio-2022')}
             >
               <div className='text-side'>
                 <h2>Development Portfolio</h2>
                 <p>This very site, which you are looking, right now.</p>
                 <p className='extra-text'>Call it meta, fluff, filler, or a pejorative of your choosing; this, here, site is something I built.</p>
                 <div className='wares-button-wrapper'>
-                  <button
-                    tabIndex={0}
-                    onClick={() => buttonClick('https://github.com/MisterPea/Portfolio-2022')}>
-                    <h3>View on GitHub</h3>
+                  <h3 tabIndex={0} role="button" data-link='github.com/MisterPea/Portfolio-2022'>
+                    View on GitHub
                     <div className='wares-arrow-icon'><MdArrowForward /></div>
-                  </button>
+                  </h3>
                 </div>
               </div>
               <div className='image-side'>
                 <div className='dev-folio-image'>
-                  <img src={'/devPortfolio.png'} alt="Development Portfolio Image"/>
+                  <img src={'/devPortfolio.png'} alt="Development Portfolio Image" />
                 </div>
               </div>
             </li>
