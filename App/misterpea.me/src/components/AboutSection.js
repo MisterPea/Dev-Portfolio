@@ -20,7 +20,7 @@ export default function AboutSection({ currentTheme }) {
 
     if (aboutText && sectionWrap) {
       const checkAboutLocation = () => {
-      
+
         const intersectTest = (aboutText.offsetTop - sectionWrap.scrollTop + (aboutHeight * 0.4)) < -0;
         if (intersectTest && moreText === true) {
           setMoreText(false);
@@ -43,8 +43,8 @@ export default function AboutSection({ currentTheme }) {
     }
   }, [currentTheme]);
 
-  const mainText = 'Mister Pea is me, Perry Angelora, and this website is the home-base of my programmatical wares. I’m a serial-creator and iterator of ideas. Stack-wise, I’m partial to JavaScript (if only for its ubiquity and versatility) as well as React, Node, Redux, NoSQL and Docker. Overall I appreciate simplicity, deliberateness, and finding the right tool for the job.';
-  const moreTextContent = 'Some other tidbits: I earned my BFA from the University of Central Florida and my MFA from the Pratt Institute, Brooklyn. I’ve been the recipient of the New York Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for the Alexander Rutsch Award for Painting.';
+  const mainText = 'Mister Pea is me, Perry Angelora, and this website is the home-base of my programmatical wares. I\'m a serial-creator and iterator of ideas. Stack-wise, I\'m partial to JavaScript (if only for its ubiquity and versatility) as well as React, Node, Redux, NoSQL and Docker. Overall I appreciate simplicity, deliberateness, and finding the right tool for the job.';
+  const moreTextContent = 'Some other tidbits: I earned my BFA from the University of Central Florida and my MFA from the Pratt Institute, Brooklyn. I\'ve been the recipient of the New York Foundation for the Arts Fellowship in Printmaking/Drawing/Book Arts and a finalist for the Alexander Rutsch Award for Painting.';
 
   function handleTextToggle() {
     setMoreText((s) => !s);
@@ -97,3 +97,4 @@ export default function AboutSection({ currentTheme }) {
     </div>
   );
 }
+      

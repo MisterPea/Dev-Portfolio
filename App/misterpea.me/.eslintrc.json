@@ -1,5 +1,10 @@
 {
   "extends": "next/core-web-vitals",
+  "settings": {
+    "next": {
+      "rootDir": "App/misterpea.me/"
+    }
+  },
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "quotes": [
