@@ -15,13 +15,11 @@ export default function AboutSection({ currentTheme }) {
 
   useEffect(() => {
     const aboutText = document.querySelector('.section-text');
-    const sectionWrap = document.querySelector('.sections-wrapper');
-    const aboutHeight = document.querySelector('.about-content-wrapper').scrollHeight;
+    const aboutHeight = document.querySelector('.about-content-wrapper').offsetTop;
 
-    if (aboutText && sectionWrap) {
+    if (aboutText) {
       const checkAboutLocation = () => {
-
-        const intersectTest = (aboutText.offsetTop - sectionWrap.scrollTop + (aboutHeight * 0.4)) < -0;
+        const intersectTest = (aboutText.offsetTop - window.scrollY + (aboutHeight * 0.3)) < -0;
         if (intersectTest && moreText === true) {
           setMoreText(false);
         }

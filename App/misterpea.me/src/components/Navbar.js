@@ -76,7 +76,7 @@ export default function Navbar({ currentTheme, toggleTheme }) {
     ));
   };
 
-  // we use this to resize the vertical lines highlighting the current section
+  // we use this to resize the vertical lines highlighting the current section on screen size change
   useEffect(() => {
     window.addEventListener('resize', () => handleHighlight(storedActiveId));
   });
@@ -102,18 +102,17 @@ export default function Navbar({ currentTheme, toggleTheme }) {
 
 
   function handleLandingClick() {
-    document.querySelector('.sections-wrapper').scrollTo({
+    window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   }
 
   function harvestClick(e) {
-    const scrollBody = document.querySelector('.sections-wrapper');
     const position = e.target?.firstChild?.data ?? undefined;
     if (position) {
       const yPosition = document.querySelector(`.${navElement.current[position]}`).offsetTop;
-      scrollBody.scrollTo({
+      window.scrollTo({
         top: yPosition,
         behavior: 'smooth',
       });
