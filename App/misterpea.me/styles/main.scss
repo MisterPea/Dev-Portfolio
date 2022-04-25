@@ -6,7 +6,8 @@
 @import "./connect-style.scss";
 
 :root {
-  --background: rgb(240, 236, 230);
+  --background: rgba(240, 236, 230,1);
+  --background-zero-opacity: rgba(240, 236, 230,0);
   --background-section:hsl(38, 25%, 95%);;
   --background-opacity: rgba(240, 236, 230, 0.6);
   --accent: rgb(166, 148, 129);
@@ -33,6 +34,7 @@
 
 [data-theme="dark"] {
   --background: #000;
+  --background-zero-opacity: rgba(0, 0, 0, 0);
   --background-section: #000;
   --background-opacity: rgba(0, 0, 0, 0.6);
   --accent: rgb(83, 169, 207);
@@ -64,6 +66,20 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  position: relative;
+  scrollbar-color: var(--scroll-tab) var(--scroll-track);
+  scrollbar-width: thin;
+  &::before {
+    content: '';
+    top:0; 
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background: var(--lines);
+    background-size: 13px;
+    background-repeat: repeat;
+  }
 }
 *,
 *:before,
@@ -74,9 +90,10 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: scroll;
   font-size: 100%;
   line-height: 1.5;
+
   @supports(padding: max(0px)) {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
@@ -107,3 +124,4 @@ button {
   border: none;
   cursor: pointer;
 }
+
