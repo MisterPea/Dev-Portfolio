@@ -19,7 +19,7 @@ export default function WaresSection() {
             <li
               role="button"
               className='wares-li'
-              onClick={(e) => buttonClick(e.target.dataset.link || 's3ui.misterpea.me')}
+              onClick={(e) => buttonClick(e.target.dataset.link || 'objectui.misterpea.me')}
               tabIndex={0}
             >
               <div className='text-side'>
