@@ -7,7 +7,8 @@
 
 :root {
   --background: rgba(240, 236, 230,1);
-  --background-zero-opacity: rgba(240, 236, 230,0);
+  --dark-opacity: 0;
+  --light-opacity: 1;
   --background-section:hsl(38, 25%, 95%);;
   --background-opacity: rgba(240, 236, 230, 0.6);
   --accent: rgb(166, 148, 129);
@@ -34,7 +35,8 @@
 
 [data-theme="dark"] {
   --background: #000;
-  --background-zero-opacity: rgba(0, 0, 0, 0);
+  --dark-opacity: 1;
+  --light-opacity: 0;
   --background-section: #000;
   --background-opacity: rgba(0, 0, 0, 0.6);
   --accent: rgb(83, 169, 207);
