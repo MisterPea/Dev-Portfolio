@@ -20,7 +20,7 @@
     z-index: 100;
     top: 0;
     left: 0;
-    transition: opacity 300ms ease;
+    transition: opacity 250ms ease-in-out;
   }
   // light
   &::before {
@@ -34,7 +34,7 @@
     z-index: 100;
     top: 0;
     left: 0;
-    transition: opacity 300ms ease;
+    transition: opacity 150ms ease-in-out;
   }
   @include tablet {
     mask-image: none;
