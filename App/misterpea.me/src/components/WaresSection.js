@@ -9,6 +9,12 @@ export default function WaresSection() {
     window.open(`https://${route}`, '_blank');
   }
 
+  function enterClick(e, route) {
+    if (e.key === 'Enter') {
+      window.open(`https://${route}`, '_blank');
+    }
+  }
+
   return (
     <div className='section wares-sec'>
       <div className='lines top'></div>
@@ -20,6 +26,7 @@ export default function WaresSection() {
               role="button"
               className='wares-li'
               onClick={(e) => buttonClick(e.target.dataset.link || 'objectui.misterpea.me')}
+              onKeyDown={(e) => enterClick(e, e.target.dataset.link || 'objectui.misterpea.me')}
               tabIndex={0}
             >
               <div className='text-side'>
@@ -50,6 +57,7 @@ export default function WaresSection() {
               role="button"
               className='wares-li'
               onClick={(e) => buttonClick(e.target.dataset.link || 'thetimespage.misterpea.me/us')}
+              onKeyDown={(e) => enterClick(e, e.target.dataset.link || 'thetimespage.misterpea.me/us')}
               tabIndex={0}
             >
               <div className='text-side'>
@@ -80,6 +88,7 @@ export default function WaresSection() {
               className="wares-li"
               tabIndex={0}
               onClick={(e) => buttonClick(e.target.dataset.link || 'perryangelora.com')}
+              onKeyDown={(e) => enterClick(e, e.target.dataset.link || 'perryangelora.com')}
             >
               <div className='text-side'>
                 <h2>Art Portfolio and CMS System</h2>
@@ -112,6 +121,7 @@ export default function WaresSection() {
               className="wares-li"
               tabIndex={0}
               onClick={(e) => buttonClick(e.target.dataset.link || 'www.npmjs.com/package/@misterpea/dragdrop')}
+              onKeyDown={(e) => enterClick(e, e.target.dataset.link || 'www.npmjs.com/package/@misterpea/dragdrop')}
             >
               <div className='text-side'>
                 <h2>NPM Components</h2>
@@ -140,6 +150,7 @@ export default function WaresSection() {
               className="wares-li"
               tabIndex={0}
               onClick={(e) => buttonClick(e.target.dataset.link || 'github.com/MisterPea/Portfolio-2022')}
+              onKeyDown={(e) => enterClick(e, e.target.dataset.link || 'github.com/MisterPea/Portfolio-2022')}
             >
               <div className='text-side'>
                 <h2>Development Portfolio</h2>

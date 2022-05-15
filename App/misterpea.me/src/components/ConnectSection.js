@@ -25,6 +25,12 @@ export default function ConnectSection() {
   function emailClick() {
     return window.location.href = renderEmail();
   }
+
+  function handleEnterDown(e, route) {
+    if (e.key === 'Enter'){
+      window.open(route, '_blank');
+    }
+  }
   
   return (
     <div className='section connect-sec'>
@@ -33,20 +39,40 @@ export default function ConnectSection() {
         <h1 className='section-title'>say<br />
           hello:</h1>
         <ul>
-          <li className="github-icon" onClick={() => buttonClick('https://github.com/MisterPea')}>
-            <AiOutlineGithub className='github-svg' />
+          <li
+            className="github-icon"
+            onClick={() => buttonClick('https://github.com/MisterPea')}
+            onKeyDown={(e) => handleEnterDown(e, 'https://github.com/MisterPea')}
+          >
+            <AiOutlineGithub tabIndex={0} className='github-svg' />
           </li>
-          <li className="linkedIn-icon" onClick={() => buttonClick('https://linkedin.com/in/perry-angelora')}>
-            <FaLinkedinIn className="linkedIn-svg" />
+          <li
+            className="linkedIn-icon"
+            onClick={() => buttonClick('https://linkedin.com/in/perry-angelora')}
+            onKeyDown={(e) => handleEnterDown(e, 'https://linkedin.com/in/perry-angelora')}
+          >
+            <FaLinkedinIn tabIndex={0} className="linkedIn-svg" />
           </li>
-          <li className='instagram-icon' onClick={() => buttonClick('https://www.instagram.com/_mister_pea/')}>
-            <AiOutlineInstagram className='instagram-svg' />
+          <li
+            className='instagram-icon'
+            onClick={() => buttonClick('https://www.instagram.com/_mister_pea/')}
+            onKeyDown={(e) => handleEnterDown(e, 'https://www.instagram.com/_mister_pea/')}
+          >
+            <AiOutlineInstagram tabIndex={0} className='instagram-svg' />
           </li>
-          <li className='twitter-icon' onClick={() => buttonClick('https://twitter.com/perry_angelora')}>
-            <AiOutlineTwitter className='twitter-svg' />
+          <li
+            className='twitter-icon'
+            onClick={() => buttonClick('https://twitter.com/perry_angelora')}
+            onKeyDown={(e) => handleEnterDown(e, 'https://twitter.com/perry_angelora')}
+          >
+            <AiOutlineTwitter tabIndex={0} className='twitter-svg' />
           </li>
-          <li className='email-icon' onClick={emailClick}>
-            <AiOutlineMail className='email-svg' />
+          <li
+            className='email-icon'
+            onClick={emailClick}
+            onKeyDown={(e) => e.key === 'Enter' && emailClick()}
+          >
+            <AiOutlineMail tabIndex={0} className='email-svg' />
           </li>
         </ul>
       </div>
